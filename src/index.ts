@@ -11,9 +11,9 @@ export const handler: CloudWatchLogsHandler = async (
 
   const decompressed = zlib.gunzipSync(payload);
 
-  // const logData = JSON.parse(decompressed);
+  const logData = JSON.parse(decompressed.toString('utf-8'));
 
-  console.log(decompressed);
+  console.log('Decompressed:', logData);
 
   return;
 };
