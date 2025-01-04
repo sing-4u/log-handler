@@ -7,9 +7,9 @@ import * as zlib from 'zlib';
 export const handler: CloudWatchLogsHandler = async (
   event: CloudWatchLogsEvent
 ) => {
-  const payload = Buffer.from(event.awslogs.data, 'base64').toString('utf8');
+  const payload = Buffer.from(event.awslogs.data, 'base64');
 
-  const decompressed = zlib.gunzipSync(payload).toString('utf-8');
+  const decompressed = zlib.gunzipSync(payload);
 
   // const logData = JSON.parse(decompressed);
 
